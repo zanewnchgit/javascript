@@ -1,0 +1,59 @@
+
+
+h1{
+    color: blue;
+}
+
+.name_this_element{
+    color: blue;
+    font-size: 12px;
+}
+
+/* 用class 的方式就可以針對element做處理 
+把style 打到css當中 */
+
+.button{
+    display: inline-block; /* 大小會根據內文決定 */
+    border: solid 1px black;
+    padding: 10px;
+    border-radius: 5px; /* 做成圓角 */
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button{
+    display: inline-block; /*出現在同一行*/
+    display: none; /* 所有東西消失 */
+    border: solid 1px black;
+    padding: 10px; /*文字與框線的內距*/
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: azure;
+    border-bottom: solid 7px red;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.static{
+    position: static;
+    left: 30px;
+}
+.relative{
+    position: relative;
+    left: 30px;
+}
+.assolute{
+    position: absolute;
+    right: 50px;
+    left: 30px;
+    padding: 10px; /* paddindg是內部*/
+    margin: 10px; /* margin 是外部*/
+}
+
+body{
+    /* 對整份內容做調整 */
+}
+

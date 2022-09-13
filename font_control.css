@@ -1,0 +1,19 @@
+.font_type{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.size{
+    font-size: 10px;
+}
+
+.color{
+    color: blue;
+}
+.weight{
+    font-weight: bolder;
+}
+.space{
+    letter-spacing: 10px;
+}
+.content_space{
+    line-height: 10px;
+}
