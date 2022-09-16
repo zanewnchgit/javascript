@@ -1,0 +1,79 @@
+*{
+    border: solid 1px black;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    /* horizontal 對齊 */
+}
+
+.desktop_menu{
+    text-align: center;
+    display: block;
+}
+
+.mobile_menu{
+    text-align: center;
+    display: none;
+}
+
+
+.product{
+    flex: none;
+    width: 280px;
+    margin: 10px;
+    padding: 10px;
+
+    background-color: #ffcccc;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+@media (max-width:1250px){
+    /* 螢幕小於1250px,套用這個區塊的css */
+    .list{
+        flex-wrap: wrap;
+        /* 才會變成水平並排 但只會設定往下並排，每個box的寬度% 還是需要自己設置*/
+
+    }
+
+    .product{
+        width:45%;
+        /* 剛好可以排兩個，第三個就會往下掉 */
+    }
+}
+
+@media (max-width:500px){
+    /* 螢幕小於1250px,套用這個區塊的css */
+    .list{
+        flex-wrap: wrap;
+        /* 才會變成水平並排 但只會設定往下並排，每個box的寬度% 還是需要自己設置*/
+
+    }
+
+    .product{
+        width: 90%;
+        /* 剛好可以排兩個，第三個就會往下掉 */
+    }
+
+    .title{
+        font-size: 16px;
+        font-weight: bold;
+        /* 變更文字大小 */
+    }
+
+    .desktop_menu{
+        display: none;
+    }
+    .mobile_menu{
+        display: block;
+        /*  做兩個版本，進行顯示跟隱藏 */
+    }
+
+}
