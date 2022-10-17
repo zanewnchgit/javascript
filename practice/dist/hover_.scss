@@ -1,0 +1,319 @@
+@mixin block($w:50px,$h:50px,$background:white,$border:black) {
+    width: $w;
+    height: $h;
+    background-color: $background;
+    border: solid 1px $border;
+
+    // 套用的css會在一秒內完成 也就是動畫
+    transition-duration: 1s
+    
+}
+
+@mixin size($w,$h) {
+    width: $w;
+    height: $h;
+    
+}
+
+.block1{
+    @include block(200px,200px);
+}
+// 當滑鼠指標移到該tag時
+.block1:hover{
+    background-color: red;
+}
+// 點擊該tag
+.block1:active{
+    background-color: black;
+}
+// 移動到該tag 但顯示在block2
+.block1:hover .block2{
+    background-color: red;
+}
+
+.block2,.block3{
+    @include block(50px,50px);
+
+}
+
+.test1{
+    border: solid 1px red;
+    width: 80px;
+    height: 30px;
+
+    & .test2{
+        border: solid 3px blue;
+        height: 15px;
+        background-color: blue;
+    }
+}
+
+.block{
+    border: solid 2px ;
+    width: 400px;
+    height: 300px;
+
+    padding: 20px;
+
+    & h1,p{
+        // 透明度 0 就會消失
+        opacity: 0;
+        // 在有變化的tag 加上
+        transition-duration: 1s;
+
+        // 利用位置做變化 就會看起來有上升的感覺 從top 20px > top 0px
+        position: relative;
+        top: 20px;
+    }
+
+    & p{
+        // p會在晚一秒才進行變化 也就是hover的內script 會再晚一秒執行
+        transition-delay: 1s;
+    }
+
+    //  滑鼠移入的時候，透明度就會變成1 就會顯示出來
+    &:hover{
+        & h1,p{
+            opacity: 1;
+            top:0px;
+        }
+    }
+}
+
+.cross{
+    border: solid 2px;
+    width: 200px;
+    height: 200px;
+    // static不能被定為
+    position: relative;transition-duration: 1s;
+    // 移到該物件的時候，滑鼠鼠標會變成可點按的圖示
+    cursor: pointer;
+    
+    
+
+    & .line1,& .line2{
+        width: 170px;
+        height: 10px;
+        border: solid 1px;
+        // absolute 是針對整個頁面做定位
+        // relative 是針對上層元素作定位
+        // 但是上層元素要可以被定為
+        // 而預設的static是不能被定為的
+        position: relative;
+        top:50%;
+        left:50%;
+        // 垂直置中 
+        transform: translateX(-50%) translateY(-50%);
+        // 要控制動畫時間的設定，要加在被執行的物件上面
+        transition-duration: 1s;
+    }
+
+    & .line1{
+        transform: translateX(-50%) translateY(-100%);
+        
+    }
+
+    & .line2{
+        transform: translateX(-50%) translateY(200%);
+    }
+    &:hover{
+
+        background-color: #FC5D1E;
+        
+
+        & .line1,.line2{
+            width: 200px;
+        }
+        & .line1{
+            transform: translateX(-50%) translateY(-50%)
+            // rotate 45 degree
+            rotate(45deg);
+        }
+
+        & .line2{
+            transform: translateX(-50%) translateY(-50%)
+            // rotate 45 degree
+            rotate(-45deg);
+        }
+
+    }
+}
+
+.box,.bblock{
+    border: solid 1px;
+
+}
+
+.box{
+    @include size(900px,500px);
+    position:relative;
+
+    & .bblock{
+        @include size(50px,50px);
+        position: absolute;
+        bottom: 0px;
+        color: red;
+    }
+    // 只要是下層的都可以使用 &
+    & .bblock1{
+        color: blue;
+        left: 50px;
+        // keyframes name, second,implement amount 
+        animation: ani1 2s infinite;
+        // 晚兩秒再開始
+        animation-delay: 2s;
+        // 決定動畫執行的速度曲線
+        // linear 線性
+        // animation-timing-function: ease-out;
+        // 總共有兩偵
+        animation-timing-function: steps(20000);
+        // easing 函數速查表
+    }
+    & .bblock2{
+        color: blue;
+        left: 100px;
+        animation: ani2 2s infinite;
+    }
+    & .bblock3{
+        color: blue;
+        left: 150px;
+        animation: ani3 2s infinite;
+    }
+    & .bblock4{
+        color: blue;
+        left: 200px;
+        animation: ani4 2s infinite;
+    }
+    & .bblock5{
+        color: blue;
+        left: 250px;
+        animation: ani5 2s infinite;
+    }
+
+}
+// 影格 動畫
+@keyframes ani1{
+    0%{
+        bottom: 100px;
+    }
+    50%{
+        bottom: 0px;
+        background-color: red;
+    }
+    100%{
+        bottom: 100px;
+    }
+}
+
+@keyframes ani2{
+    0%{
+        bottom: 100px;
+    }
+    30%{
+        background-color: white;
+        // 旋轉
+        transform: rotate(0deg);
+    }
+    50%{
+        bottom: 0px;
+        background-color: red;
+        transform: rotate(180deg);
+    }
+    70%{
+        background-color: white;
+        transform: rotate(0deg);
+    }
+    100%{
+        bottom: 100px;
+    }
+}
+
+@keyframes ani3{
+    0%{
+        bottom: 100px;
+    }
+    30%{
+        background-color: white;
+        // transform: rotate(0deg);
+        // 縮放
+        transform: scale(1);
+    }
+    50%{
+        bottom: 0px;
+        // background-color: red;
+        // transform: rotate(180deg);
+        transform: scale(0.5);
+    }
+    70%{
+        background-color: white;
+        // transform: rotate(0deg);
+        transform: scale(1);
+    }
+    100%{
+        bottom: 100px;
+    }
+}
+
+@keyframes ani4{
+    0%{
+        transform: translateX(0px) translateY(0px);
+    }
+    20%{
+        transform: translateX(50px) translateY(0px);
+    }
+    40%{
+        transform: translateX(50px) translateY(-50px);
+    }
+    60%{
+        transform: translateX(0px) translateY(-50px);
+    }
+    80%{
+        transform: translateX(0px) translateY(0px);
+    }
+    
+}
+
+@keyframes ani5{
+    0%{
+        // 傾斜
+        transform: skewX(20deg);
+        // 原點 x-axis y-axis
+        // x 0% 代表在最左邊
+        // y 100% 代表在最底部
+        transform-origin: 0% 100%;
+    }
+    50%{
+        transform: skewX(-20deg);
+        transform-origin: 0% 100%;
+    }
+    100%{
+        // 傾斜
+        transform: skewX(20deg);
+        // 原點 x-axis y-axis
+        // x 0% 代表在最左邊
+        // y 100% 代表在最底部
+        transform-origin: 0% 100%;
+    }
+    
+}
+
+svg{
+    width: 240px;
+    border: solid 2px;
+    
+
+    & line{
+        // border color
+        stroke: black;
+        stroke-width: 3px;
+    }
+
+    & circle{
+        fill:white;
+        // background color
+        stroke: black;
+        stroke-width: 3px;
+    }
+}
+
+

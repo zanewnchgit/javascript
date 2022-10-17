@@ -1,0 +1,57 @@
+*
+    // border: solid 1px black
+    position: relative
+
+@mixin size($w,$h)
+    width: $w
+    height: $h
+
+.phone
+    width: 240px
+    margin-left: auto
+    margin-right: auto
+    margin-top: 100px
+    // margin-bottom: px
+
+    border: solid 1px #888
+    // 圓角
+    border-radius: 6px
+
+.top
+    +size(100%,150px)
+    backgroud-image: url('')
+    background-size: cover
+    // x-axis y-axis 
+    background-position: center center
+
+.bottom
+    +size(100%,200px)
+    background-color: white
+
+.headpicture
+    +size(80px,80px)
+    position: absolute
+    top: -50px
+    left: 10px
+
+    // 背景不在是顏色，而是一張圖片
+    backgroud-image: url('')
+    // cover 剛好塞滿tag
+    background-size: cover
+
+    border: solid 2px white
+
+    & .name
+        block: inline-block
+        position: relative
+        right: -100px
+        color: white
+        letter-spacing: 2px
+        top: 10px
+
+body,html
+    +size(100%,100%)
+    padding: 0px
+    margin: 0px
+    background-color: #eee
+

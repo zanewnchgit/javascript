@@ -1,0 +1,11 @@
+
+    
+@mixin block($w:50px,$h:50px,$background:white,$border:black)
+    width: $w
+    height: $h
+    background-color: $background
+    border: solid 2px $border
+
+.block1
+    @include block(200px,200px)
+    

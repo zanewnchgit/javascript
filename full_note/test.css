@@ -1,0 +1,19 @@
+/* add solid to all block */
+*{
+    border: solid 1px black;
+}
+
+
+
+.code{
+    accent-color: rgb(94,158,255);
+    color: blue;
+    color-scheme: dark;
+    flex: none;
+    width: 50%;
+}
+
+body{
+    background-color: lightgray;
+    /* color: red; */
+}

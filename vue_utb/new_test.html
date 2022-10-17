@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 這樣就可以用vue了 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js' integrity='sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==' crossorigin='anonymous'></script>
+
+
+    <style>
+        *{
+            border: solid 1px black;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <img src="" alt="" class="sql">
+        <div class="text"></div>
+        <img src="" alt="" v-bind="src">
+        <div>aaa{{title}}</div>
+    </div>
+
+    <script>
+        const {createApp} = Vue
+
+        createApp(
+            {
+                data() {
+                    return{
+                        message: 'hello new test',
+                    }
+                }
+            }
+        ).mount('#app')
+
+        
+        // jquery
+        let data = {
+            src: './sql-server.png',
+            title: 'vue test with jquery'
+        }
+        // 控制文字
+        $('#app > .text').text(data.title)
+        // 控制attr attribute
+        $('.sql').attr('src',data.src)
+
+        // vue
+        let vm = new Vue({
+            // 綁定tag
+            el : '#app',
+            data: data
+        })
+
+    </script>
+</body>
+</html>

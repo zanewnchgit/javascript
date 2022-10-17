@@ -1,0 +1,45 @@
+*
+    // border: solid 1px black
+    background-color: white
+    font-family: 微軟正黑體
+
+@mixin size($w,$h)
+    width: $w
+    height: $h
+
+div
+    border: solid 2px black
+    +size(150px,50px)
+    padding: 20px
+    color: white
+    // 透明按鈕
+    background-color: transparent
+    margin: 20px
+
+    // 至少要給一個空字串
+    // attr 就是html attribute
+    // attr(size) 就是顯示attr的內容
+    &::before
+        content: attr(size) '-'
+    &::after
+        content: '(' attr(color) ')'
+
+// 對html attribute 做操作 
+div[size='small']
+    +size(150px,50px)
+
+div[size='medium']
+    +size(250px,70px)
+
+div[size='large']
+    +size(350px,90px)
+
+div[color='green']
+    border-color: green
+
+div[color='red']
+    border-color: red
+
+// html是整份文件，body是所有元素
+body,html
+    background-color: #333

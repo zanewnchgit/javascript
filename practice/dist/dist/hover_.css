@@ -1,0 +1,237 @@
+.block1 {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border: solid 1px black;
+  transition-duration: 1s;
+}
+
+.block1:hover {
+  background-color: red;
+}
+
+.block1:active {
+  background-color: black;
+}
+
+.block1:hover .block2 {
+  background-color: red;
+}
+
+.block2, .block3 {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: solid 1px black;
+  transition-duration: 1s;
+}
+
+.test1 {
+  border: solid 1px red;
+  width: 80px;
+  height: 30px;
+}
+.test1 .test2 {
+  border: solid 3px blue;
+  height: 15px;
+  background-color: blue;
+}
+
+.block {
+  border: solid 2px;
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+}
+.block h1, .block p {
+  opacity: 0;
+  transition-duration: 1s;
+  position: relative;
+  top: 20px;
+}
+.block p {
+  transition-delay: 1s;
+}
+.block:hover h1, .block:hover p {
+  opacity: 1;
+  top: 0px;
+}
+
+.cross {
+  border: solid 2px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+.cross .line1, .cross .line2 {
+  width: 170px;
+  height: 10px;
+  border: solid 1px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition-duration: 1s;
+}
+.cross .line1 {
+  transform: translateX(-50%) translateY(-100%);
+}
+.cross .line2 {
+  transform: translateX(-50%) translateY(200%);
+}
+.cross:hover {
+  background-color: #FC5D1E;
+}
+.cross:hover .line1, .cross:hover .line2 {
+  width: 200px;
+}
+.cross:hover .line1 {
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.cross:hover .line2 {
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+.box, .bblock {
+  border: solid 1px;
+}
+
+.box {
+  width: 900px;
+  height: 500px;
+  position: relative;
+}
+.box .bblock {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  color: red;
+}
+.box .bblock1 {
+  color: blue;
+  left: 50px;
+  animation: ani1 2s infinite;
+  animation-delay: 2s;
+  animation-timing-function: steps(20000);
+}
+.box .bblock2 {
+  color: blue;
+  left: 100px;
+  animation: ani2 2s infinite;
+}
+.box .bblock3 {
+  color: blue;
+  left: 150px;
+  animation: ani3 2s infinite;
+}
+.box .bblock4 {
+  color: blue;
+  left: 200px;
+  animation: ani4 2s infinite;
+}
+.box .bblock5 {
+  color: blue;
+  left: 250px;
+  animation: ani5 2s infinite;
+}
+
+@keyframes ani1 {
+  0% {
+    bottom: 100px;
+  }
+  50% {
+    bottom: 0px;
+    background-color: red;
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+@keyframes ani2 {
+  0% {
+    bottom: 100px;
+  }
+  30% {
+    background-color: white;
+    transform: rotate(0deg);
+  }
+  50% {
+    bottom: 0px;
+    background-color: red;
+    transform: rotate(180deg);
+  }
+  70% {
+    background-color: white;
+    transform: rotate(0deg);
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+@keyframes ani3 {
+  0% {
+    bottom: 100px;
+  }
+  30% {
+    background-color: white;
+    transform: scale(1);
+  }
+  50% {
+    bottom: 0px;
+    transform: scale(0.5);
+  }
+  70% {
+    background-color: white;
+    transform: scale(1);
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+@keyframes ani4 {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  20% {
+    transform: translateX(50px) translateY(0px);
+  }
+  40% {
+    transform: translateX(50px) translateY(-50px);
+  }
+  60% {
+    transform: translateX(0px) translateY(-50px);
+  }
+  80% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+@keyframes ani5 {
+  0% {
+    transform: skewX(20deg);
+    transform-origin: 0% 100%;
+  }
+  50% {
+    transform: skewX(-20deg);
+    transform-origin: 0% 100%;
+  }
+  100% {
+    transform: skewX(20deg);
+    transform-origin: 0% 100%;
+  }
+}
+svg {
+  width: 240px;
+  border: solid 2px;
+}
+svg line {
+  stroke: black;
+  stroke-width: 3px;
+}
+svg circle {
+  fill: white;
+  stroke: black;
+  stroke-width: 3px;
+}

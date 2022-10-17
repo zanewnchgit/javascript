@@ -1,0 +1,48 @@
+@charset "UTF-8";
+* {
+  background-color: white;
+  font-family: 微軟正黑體;
+}
+
+div {
+  border: solid 2px black;
+  width: 150px;
+  height: 50px;
+  padding: 20px;
+  color: white;
+  background-color: transparent;
+  margin: 20px;
+}
+div::before {
+  content: attr(size) "-";
+}
+div::after {
+  content: "(" attr(color) ")";
+}
+
+div[size=small] {
+  width: 150px;
+  height: 50px;
+}
+
+div[size=medium] {
+  width: 250px;
+  height: 70px;
+}
+
+div[size=large] {
+  width: 350px;
+  height: 90px;
+}
+
+div[color=green] {
+  border-color: green;
+}
+
+div[color=red] {
+  border-color: red;
+}
+
+body, html {
+  background-color: #333;
+}

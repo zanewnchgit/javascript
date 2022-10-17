@@ -1,0 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Noto+Serif+TC&display=swap')
+// 使用google font
+// 也可以在html 
+// <style>
+// @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+// </style>
+    
+// assign variable
+$color_yellow: #ffb336
+$color_blue: #27232F
+$color_white: #f3f7f7
+$color_grey: #333333
+
+$font_size: 10px
+
+html,body
+    padding: 0px
+    margin: 0px
+
+*
+    // border: solid 1px black
+    position: relative
+    // padding: 0px
+    // margin: 0px
+    font-family: 'Gemunu Libre','Noto Serif TC', sans-serif,
+
+@mixin size($w,$h)
+    width: $w
+    height: $h
+
+.header
+    height:300px
+    background-color : $color_blue
+    & .icon
+        width: 150px
+        posution: absolute
+        left: 50%
+        top: 50%
+        transform: translateX(-50%) translateY(-50%)
+
+
+.content
+    // font-family: 微軟正黑體
+    padding: 50px
+
+    background-color: $color_grey
+    color: $color_white
+
+    max-width: 768px
+    margin-left: auto
+    margin-right: auto
+
+    & h1, & h2, & h3
+        font-weight: 500
+        
+    & hr
+        color: red
+        background-color: red
+        
+    & .title_hr
+        border: solid 3px $color_yellow
+        width: 100px
+
+    & h5
+        margin-top: 10px
+
+    & h1
+        // *4 = 10px * 4 = 40px
+        font-size: $font_size*4
+        
+    & h2
+        font-size: $font_size*3
+
+    & h3
+        font-size:$font_size*2
+
+    & h1.small_english
+        font-size: $font_size*2.4
+
+    & h2.small_english
+        font-size: $font_size*1.6
+
+    & h3.small_english
+        font-size: $font_size*1.2
+
+    & .small_english
+        margin-top: -15px
+        color: $color_yellow
+
+    & .button
+        padding: 5px 25px
+        
+        // 根據內容大小進行縮放
+        // 原本預設是block，就會由上往下排列，改成inline-block就會變成同row左到右
+        display: inline-block
+        margin-right: 10px
+        letter-spacing: 2px
+        font-size: $font_size*1.5
+        font-weight: bold
+
+        border: solid 1px white
+
+    & .color_chip
+        display: inline-block
+        margin-right: 25px
+
+        // 同時修改兩個tag
+        & .color_block,& .color_tag
+            display: inline-block
+            // 垂直排列
+            vertical-align: middle
+        
+        & .color_block
+
+            +size(30px,40px)
+
+        & .color_tag
+            width: 60px
+        
+        & .color_block.chip_yellow
+            background-color: $color_yellow
+
+        & .color_block.chip_blue
+            background-color: $color_blue
+
+        & .color_block.chip_white
+            background-color: $color_white
+
+        & .color_block.chip_grey
+            background-color: $color_grey
+
+    & .button_blue
+        background-color: $color_blue
+    & .button_yellow
+        background-color: $color_yellow
+
+
+
+
+          
+
+

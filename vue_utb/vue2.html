@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <img src="" alt="" :src="src">
+        <div>{{title}}</div>
+    </div>
+
+
+    <script>
+        let data = {
+            src: '.sql-server.png',
+            title: 'vue2',
+            menu: [
+            {type: 'a',title: 'test',link :'url'},
+            {type: 'a',title: 'test',link :'url'}
+            ],
+            index :0
+        }
+
+        let vm = new Vue({
+            el:'#app',
+            data:data
+        })
+
+        // 舊版的寫法不適用
+        // 要用create app
+
+    </script>
+</body>
+</html>

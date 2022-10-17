@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Noto+Serif+TC&display=swap');
+
+$color_white: #f3f3f3;
+$color_yellow: #FFD633;
+$color_black: #333;
+$color_blue_start: #19283D;
+$color_blue_end: #1D678F;
+$color_rain: #4DACFF;
+$color_white_cloud: #f2f9fe;
+$color_grey_cloud: #ccc;
+
+@mixin size($w,$h) {
+    width: $w;
+    height: $h;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    // 消除空隙
+    display: flex;
+    // 所有的物件致中排列
+    justify-content: center;
+    // 文字致中
+    align-items: center;
+     
+}
+
+*{
+    border: solid 1px black;
+    position: relative;
+    font-family: 'Gemunu Libre','Noto Serif TC', sans-serif;
+}
+
+.daybox{
+    width: 50%;
+    max-width: 400px;
+    
+}
+
+.top{
+    height: 330px;
+    // 漸層背景
+    background: linear-gradient(20deg,$color_blue_start,$color_blue_end);
+    background-size: 100% 300%;
+
+    // both 要再去查資料 給both 就不會跳轉
+    animation: daylight 5s both;
+
+
+    @keyframes daylight {
+        0%{
+            background-position: 100% 30%;
+        }
+        100%{
+            background-position: 100% 100%;
+        }
+        
+    }
+
+    &.temsvg{
+        //  填滿左右
+        width: 100%;
+
+        & polyline{
+            stroke: red;
+            stroke-width: 2px;
+            fill: none;
+            
+
+        }
+        & text{
+            transform: translateX(-10px) translateY(20px);
+            font-size: 20px;
+            
+        }
+            
+    }
+
+    & .moon{
+        @include size(50px,50px);
+        border-radius: 100px;
+        // 特別操作 加上陰影
+        box-shadow: 15px -15px;
+        position: absolute;
+        left: 50px;
+        top: 100px;
+        // 加上自己刻的動畫
+        animation: moonmove 20s infinite;
+        // background-color:  $color_yellow;
+    }
+
+    & .cloud{
+
+        @include size(100px,36px);
+        position: absolute;
+        left: 200px;
+        bottom: 50px;
+        border-radius: 20px;
+        animation: cloud_drift 4s infinite;
+        background-color:  $color_white;
+        
+        
+        // before and after are fake element
+        // 可以當成一般的div 進行操作  不需要在html輸入內容 
+        &::before,&::after{
+            content: '';
+            display: block;
+            @include size(50px,50px);
+            // border: solid 1px red;
+            border-radius: 100%;
+            position: absolute;
+            background-color: $color_white;
+        }
+        &::before{
+            left: 16px;
+            top: -28px;
+        }
+        &::after{
+            left: 35px;
+            top: -20px;
+        }
+
+        & .rain{
+            @include size(2px,10px);
+            background-color: $color_white;
+            // keyframes 跟animation是綁在一起的
+            animation: raindrop 2s infinite;
+            animation-timing-function: linear;
+            left: 45px;
+            bottom: 15px;
+            transition-duration: 0.5s;
+            position: absolute;
+            background-color: $color_white;
+        }
+
+        & .rain2{
+            animation-delay: -0.4s;
+            left: 70px;
+            bottom: 20px;
+        }
+
+        & .rain3{
+            left: 30px;
+            bottom: 20px;
+            animation-delay: -0.7s;
+        }
+        
+    }
+}
+
+@keyframes cloud_drift{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+@keyframes raindrop{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(50px);
+        // 會逐漸消失
+        opacity: 0;
+    }
+}
+
+
+// 加上動畫影格  animation
+@keyframes moonmove{
+    0%{
+        box-shadow: 15px -15px $color_yellow; 
+        transform: translateX(-15) translateY(15px);
+    }
+    100%{
+        box-shadow: -30px 30px $color_yellow;
+        transform: translateX(30px) translateY(-30px);
+    }
+}
+
+.bottom{
+    height: 100px;
+    // 新的顯示方法 為了消除每個dayweather 之間的空白空隙
+    display: flex;
+    // 左右致中
+    justify-content: center;
+
+   
+
+    & .dayweather{
+        // 運算式計算寬度
+        width: calc(100%/7 - 10px);
+        display: inline-block;
+        // 文字致中排列
+        text-align: center;
+
+        & h3{
+            font-size: 8px;
+
+        }
+
+        & svg{
+            width: 100%;
+            // border-color: red;
+            height: 30px;
+            max-width: 40px;
+
+        }
+        & .sun{
+            stroke-width: 30px;
+            stroke-dasharray: 5px;
+            // 增加透明度
+            stroke: rgba(black,0.5);
+            fill: rgba(black,0.5);
+            
+        }
+        & .rain{
+            stroke: black;
+            
+        }
+    }
+}
+
+.text_area{
+    display: inline-block;
+    position: absolute;
+    bottom: 25px;
+    left: 27px;
+    color: $color_white;
+
+    & .temperature{
+        font-size: 75px;
+        // 調整文字的高度
+        line-height: 80px;
+    }
+    & .infos{
+        font-size: 13px;
+    }
+
+    
+}
