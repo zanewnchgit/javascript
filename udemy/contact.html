@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact me</title>
+</head>
+<body>
+
+    <h1>my contact details</h1>
+    <ul>
+        <li>zanewnch@gmail.com</li>
+        <li>0955845585</li>
+    </ul>
+    
+    <form class="" action="index.html" method="post">
+        <label for="">your name:</label>
+        <input type="text">
+        <input type="submit" name="" id="">
+        <input type="color">
+        <input type="button"><br> 
+        <!-- <br>可以換行 -->
+        <label for="">check</label>
+        <input type="checkbox">
+        
+    </form>
+
+    <hr>
+
+    <form action="index.html" method="post">
+        <!-- action: 用來指定一個位址 (URL)，這個位址是告訴瀏覽器 (browser) 當 user 按送出表單後，要將表格的內容送去哪邊。 -->
+        <!-- method: 用來指定資料傳輸時用的 HTTP 協議，最常用的是 get 或 post：
+        get: 會將表單資料放在 form action 請求的位址 URL 網址參數列 (URL GET parameters) 上面送出。get 通常用在資料量較小或非敏感的資料，因為資料會被放在網址中直接傳出，容易被直接看到資料。
+        post: 會將表單資料放在 HTTP 傳輸封包 body 中送出。post 通常用在表單資料量比較大、有夾帶檔案上傳 (file upload) 或隱私性考量的資料。 -->
+        <label for="">text</label>
+        <input type="text">
+        <input type="submit"><br>
+        <input type="file"><br>
+        <input type="date"><br>
+        <input type="radio"><br>
+        <input type="checkbox"><br>
+        <input type="range"><br>
+        <label for="">password</label>
+        <input type="password">
+
+
+    </form>
+
+    <hr>
+    <form action="mailto:zanewnch@gmail.com" method="post" enctype="text/plain">
+        <label for="">your name:</label>
+        <input type="text" name="your_name" value=""><br>
+        <!-- name 就是input value 的變數名稱 -->
+        <label for="">your email</label>
+        <input type="email" name="your_email" value="">
+        <label for="">your message</label>
+        <textarea name="" id="" cols="5" rows="1"></textarea>
+        <input type="submit">
+    </form>
+
+
+</body>
+</html>
