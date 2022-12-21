@@ -1,0 +1,17 @@
+* {
+    border: solid 1px;
+}
+
+body {
+    background-color: #DFC2BC;
+}
+.ts {
+    height: 50px;
+} 
+/* class selector = .ts */
+
+#ts {
+    background-color: red;
+}
+/* id selector = #ts */
+

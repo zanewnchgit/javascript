@@ -1,0 +1,50 @@
+* {
+    border: solid 2px black;
+}
+
+body {
+    margin: 0px;
+}
+h1 {
+    margin-top: 0px;
+    /* border: solid 1px blue; */
+    /* border-width: 20px 3px 4px 5px; */
+}
+
+div {
+    background-color: #E4F9F5;
+}
+
+#control {
+    height: 450px;
+    /* width: 200px; */
+    padding-left: 50px;
+    display: none;
+}
+
+#control1 {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+/* by id */
+#control2 {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}
+
+/* by class */
+.remember {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border: solid 3px pink;
+    display: none;
+}
+
+.web {
+    color: red;
+    text-decoration: underline;
+}
